@@ -19,8 +19,12 @@ import java.util.List;
 @RequestMapping(path = "/usuario")
 public class UserController {
 
-    @Autowired
     private UserService service;
+
+    @Autowired
+    public UserController(UserService service){
+	this.service = service;
+    }
 
     @PostMapping(path = "/inserir")
     public ResponseEntity inserir(@RequestBody User user){
